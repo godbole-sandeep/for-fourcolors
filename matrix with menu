@@ -1,0 +1,27 @@
+The program should now present a menu to the user.
+The menu is as follows:
+
+1. Input Matrix 1 Data
+2. Input Matrix 2 Data
+3. Show Addition Result
+4. Show Subtraction Result
+5. Exit
+Enter your Choice: _
+
+If user input choice number other than 1 to 5, the program 
+should display error message: Invalid Choice. And, redisplay
+the menu for reentering the choice.
+
+If user select choice as 1. Your program should accept input
+for the first matrix from the user.
+
+If user select choice as 2. Your program should accept input
+for the second matrix from the user.
+
+If user select choice as 3. Your program should display addition
+result in the form of a matrix.
+
+If user select choice as 4. Your program should display subtraction result in the form of a matrix.
+
+If user select choice as 5. Your program should exit.
+
