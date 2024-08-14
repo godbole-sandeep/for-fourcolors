@@ -1,15 +1,17 @@
-class MyClass {
+class Math {
 public:
-	static void StaticMethod() {
-		this;
-	}
-
-	void NonStaticMethod() {
-		this;
+	static int Add(int a, int b) const {
+		return a + b;
 	}
 };
 
+int main() {
+	Math m;
+	int result = m.Add(1, 2);
+	result = Math::Add(3, 4);
+	return 0;
+}
+
 /*
-- The 'this' pointer does not exist in static member functions.
-- It only exists in non-static member functions.
+- static member function cannot be constant member function.
 */
