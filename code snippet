@@ -1,17 +1,36 @@
-class Math {
+#include <iostream>
+
+class MyClass {
 public:
-	static int Add(int a, int b) const {
-		return a + b;
-	}
+    static void StaticMethod() {
+        std::cout << "Static method called." << std::endl;
+    }
+
+    void NonStaticMethod() {
+        std::cout << "Non-static method called." << std::endl;
+    }
+
+    static void CallingStaticMethod() {
+        StaticMethod();
+        NonStaticMethod();
+    }
+
+    void CallingNonStaticMethod() {
+        StaticMethod();
+        NonStaticMethod();
+    }
 };
 
 int main() {
-	Math m;
-	int result = m.Add(1, 2);
-	result = Math::Add(3, 4);
-	return 0;
+    MyClass::CallingStaticMethod();
+
+    MyClass object;
+    object.CallingNonStaticMethod();
+
+    return 0;
 }
 
 /*
-- static member function cannot be constant member function.
+- A static member function can only call another static member function.
+- A nonstatic member function can call both static and non-static member functions.
 */
