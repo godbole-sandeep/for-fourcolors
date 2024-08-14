@@ -1,0 +1,15 @@
+class MyClass {
+public:
+	static void StaticMethod() {
+		this;
+	}
+
+	void NonStaticMethod() {
+		this;
+	}
+};
+
+/*
+- The 'this' pointer does not exist in static member functions.
+- It only exists in non-static member functions.
+*/
