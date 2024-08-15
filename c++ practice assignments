@@ -1,2 +1,64 @@
 C++ Practice Assignments:
 https://docs.google.com/document/d/1Wflf4Bzz6gITYjUZL5Uyd7UiqR4JLQiGVPNuzBEl8o4/edit?usp=sharing
+
+01. Write a program to calculate the sum of first n natural integers. (Hint: use formula to calculate sum of first n natural numbers)
+    Sample Input:
+    Input n: 5
+    Sample Output:
+    Sum of first 5 natural numbers is: 15
+
+02. Write a program to check if a number can be expressed as the sum of two prime numbers.
+    Sample Input:
+    Input a positive integer: 20
+    Sample Output:
+    20 = 3 + 17
+    20 = 7 + 13
+
+03. Write a program that searches for a specific target value within an unsorted array of integers using linear search.
+    You may search online to learn about linear search. The program should:
+    - Accept an unsorted array of integers and a target integer as inputs.
+    - Return the index of the target value if it exists in the array.
+    - Return -1 if the target is not found in the array.
+    - Handle arrays of various lengths, including empty arrays.
+    - Return the index of the first occurrence if the target value appears multiple times.
+
+04. Write a function called replace that assigns new_value to all elements of an array that are equal to old_value.
+    Test your replace function using the provided testing code.
+    #include <assert.h>
+    int main() {
+        int a[] = { 10, 20, 30, 30, 20, 10, 10, 20 };
+        int len = sizeof(a) / sizeof(int);
+        int oldvalue = 20, newvalue = 99;
+        replace(a, len, oldvalue, newvalue);
+        // post execution of replace function
+        // the old value shouldn't exist
+        // in an array
+        for (int i = 0; i < len; ++i) {
+       	 assert(a[i] != oldvalue);
+        }
+    }
+    
+    // Define your replace function here.
+
+05. Write a function called sort that allows the user to configure the sorting order, either in ascending or descending direction.
+    Test your sort function using the provided testing code.
+    #include <assert.h>
+    enum SortOrder { Ascending, Descending };
+    int main() {
+        int a[]{ 6, 4, 3, 8, 7, 9, 1, 0, 2, 5 };
+        size_t size = sizeof(a)/sizeof(int);
+        sort(a, size); // Sorts ascending by default
+        for (size_t i = 0; i < size; ++i) {
+       	 assert(a[i] == i);
+        }
+        sort(a, size, Descending);
+        for (size_t i = 0; i < size; --i) {
+       	 assert(a[i] == 9 - i);
+        }
+        sort(a, size, Ascending);
+        for (size_t i = 0; i < size; ++i) {
+       	 assert(a[i] == i);
+        }
+    }
+    // Define your sort function here
+
