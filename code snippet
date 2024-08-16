@@ -1,17 +1,5 @@
 /*
-What is an RTTI?
-- It stands for Run-Time Type Information.
-- It provides a mechanism to retrieve type information of objects at runtime.
-
-What is typeid?
-- typeid is an operator.
-- The argument to typeid can be an object or a data type.
-- It returns an object of type_info type.
-- Include typeinfo.h to access type_info object's members.
-
-What is an application of the typeid operator?
-- If 'n' is a 'int' variable, typeid(n) and typeid(int) yield the identical type_info object.
-  Hence, expressions like typeid(n) == typeid(int) are true.
-- The expression typeid(n) == typeid(double) returns false because typeid(double) returns
-  a different type_info object than typeid(n).
+Where is RTTI useful?
+- RTTI is particularly useful in scenarios involving polymorphic hierarchies,
+  where objects of derived classes can be treated as objects of their base class type.
 */
