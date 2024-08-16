@@ -1,16 +1,17 @@
 /*
-What are the key points to note in the program above?
-- Function parameters can be of the enum type.
-- Only enum-permitted constants can be provided as arguments.
-- Passing raw integers instead of using the enum constants results in compilation error.
+What is an RTTI?
+- It stands for Run-Time Type Information.
+- It provides a mechanism to retrieve type information of objects at runtime.
 
-What is an enum?
-- An enum is a user-defined data type used to define a set of named constant values.
-- It associates symbolic names with integer values.
-- It makes the code more readable.
-- By default, the first enumerator in an enum has the value 0, and each succeeding enumerator
-  is assigned a value one higher than the preceding one.
+What is typeid?
+- typeid is an operator.
+- The argument to typeid can be an object or a data type.
+- It returns an object of type_info type.
+- Include typeinfo.h to access type_info object's members.
 
-Which is the underlying data type of enum?
-- The underlying data type of an enum is integer.
+What is an application of the typeid operator?
+- If 'n' is a 'int' variable, typeid(n) and typeid(int) yield the identical type_info object.
+  Hence, expressions like typeid(n) == typeid(int) are true.
+- The expression typeid(n) == typeid(double) returns false because typeid(double) returns
+  a different type_info object than typeid(n).
 */
