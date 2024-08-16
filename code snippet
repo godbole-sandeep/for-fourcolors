@@ -1,19 +1,88 @@
+#include <iostream>
+
+class Base {
+public:
+    // Default constructor
+    Base() : m_baseData(0) {
+        std::cout << "Base default constructor called" << std::endl;
+    }
+
+    // Parametric constructor
+    Base(int baseData) : m_baseData(baseData) {
+        std::cout << "Base parametric constructor called" << std::endl;
+    }
+
+    // Copy constructor
+    Base(const Base& other) : m_baseData(other.m_baseData) {
+        std::cout << "Base copy constructor called" << std::endl;
+    }
+
+    // Copy assignment operator
+    Base& operator=(const Base& other) {
+        if (this != &other) {
+            m_baseData = other.m_baseData;
+            std::cout << "Base copy assignment operator called" << std::endl;
+        }
+        return *this;
+    }
+
+    // Destructor
+    ~Base() {
+        std::cout << "Base destructor called" << std::endl;
+    }
+
+private:
+    int m_baseData;
+};
+
+class Derived : public Base {
+public:
+    // Default constructor
+    Derived() : m_derivedData(0.0) {
+        std::cout << "Derived default constructor called" << std::endl;
+    }
+
+    // Parametric constructor
+    Derived(int baseData, double derivedData) : Base(baseData), m_derivedData(derivedData) {
+        std::cout << "Derived parametric constructor called" << std::endl;
+    }
+
+    // Copy constructor
+    Derived(const Derived& other) : Base(other), m_derivedData(other.m_derivedData) {
+        std::cout << "Derived copy constructor called" << std::endl;
+    }
+
+    // Copy assignment operator
+    Derived& operator=(const Derived& other) {
+        if (this != &other) {
+            Base::operator=(other);
+            m_derivedData = other.m_derivedData;
+            std::cout << "Derived copy assignment operator called" << std::endl;
+        }
+        return *this;
+    }
+
+    // Destructor
+    ~Derived() {
+        std::cout << "Derived destructor called" << std::endl;
+    }
+
+private:
+    double m_derivedData;
+};
+
+int main() {
+    Derived d1;
+    Derived d2(10, 3.14); // Parametric constructor
+    Derived d3;
+    d3 = d2; // Copy assignment operator
+    return 0;
+}
+
 /*
-What happens if a function declaration appears multiple times in a source file?
-- If a function declaration appears multiple times, it does not cause a compilation error.
-
-What happens if a class declaration appears multiple times in a source file?
-- If a type, such as a class, is declared multiple times, it will result in a compilation error.
-
-Then, how can errors due to the appearance of a class declaration multiple times be prevented?'
-- Use include guards or #pragma once in the header file.
-
-Does a class appearing multiple times in the translation unit ever happen?
-- A class appearing multiple times in the translation unit can indeed happen,
-  even though we intentionally never repeat a class multiple times in a source file.
-- This usually occurs due to indirect inclusion, where a header file that contains
-  the class declaration is included in multiple other files, leading to multiple
-  appearances of the class in the final translation unit.
-- Such scenarios can cause compilation errors, which is why include guards or
-  '#pragma once' are essential to prevent this issue.
+What are the key points to note in the program above?
+- The default constructor of a derived class calls the default constructor of the base class.
+- The copy constructor of a derived class calls the copy constructor of the base class.
+- The parametric constructor of a derived class calls the parametric constructor of the base class.
+- The assignment operator of a derived class calls the assignment operator of the base class.
 */
