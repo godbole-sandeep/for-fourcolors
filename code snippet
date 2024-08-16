@@ -1,58 +1,16 @@
-#include <iostream>
-#include <string>
+/*
+What are the key points to note in the program above?
+- Function parameters can be of the enum type.
+- Only enum-permitted constants can be provided as arguments.
+- Passing raw integers instead of using the enum constants results in compilation error.
 
-#define S_OK 0
-#define E_INVALID_RADIUS 1
-#define E_TOO_LARGE_RADIUS 2
+What is an enum?
+- An enum is a user-defined data type used to define a set of named constant values.
+- It associates symbolic names with integer values.
+- It makes the code more readable.
+- By default, the first enumerator in an enum has the value 0, and each succeeding enumerator
+  is assigned a value one higher than the preceding one.
 
-class Exception {
-public:
-	Exception(int errcode, std::string message)
-		: m_errcode(errcode), m_message(message) {}
-public:
-	int GetErrCode() const { return m_errcode; }
-	std::string GetMessage() const { return m_message; }
-private:
-	int m_errcode;
-	std::string m_message;
-};
-
-class InvalidRadiusException : public Exception {
-public:
-	InvalidRadiusException() : Exception(E_INVALID_RADIUS, "Radius was incorrect.") {}
-};
-
-class TooLargeRadiusException : public Exception {
-public:
-	TooLargeRadiusException() : Exception(E_TOO_LARGE_RADIUS, "Radius is too large.") {}
-};
-
-double CalculateArea(int radius);
-
-int main() {
-	try {
-		int radius = 101;
-		double area = CalculateArea(radius);
-		std::cout << "Area of circle is " << area << std::endl;
-	}
-	catch (InvalidRadiusException& e) {
-		std::cout << e.GetMessage() << std::endl;
-	}
-	catch (TooLargeRadiusException& e) {
-		std::cout << e.GetMessage() << std::endl;
-	}
-	catch (Exception& e) {
-		std::cout << e.GetMessage() << std::endl;
-	}
-	return 0;
-}
-
-double CalculateArea(int radius) {
-	if (radius <= 0) {
-		throw InvalidRadiusException();
-	}
-	else if (radius > 100) {
-		throw TooLargeRadiusException();
-	}
-	return 3.14 * radius * radius;
-}
+Which is the underlying data type of enum?
+- The underlying data type of an enum is integer.
+*/
