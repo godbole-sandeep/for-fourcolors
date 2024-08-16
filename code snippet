@@ -1,5 +1,19 @@
 /*
-Where is RTTI useful?
-- RTTI is particularly useful in scenarios involving polymorphic hierarchies,
-  where objects of derived classes can be treated as objects of their base class type.
+What happens if a function declaration appears multiple times in a source file?
+- If a function declaration appears multiple times, it does not cause a compilation error.
+
+What happens if a class declaration appears multiple times in a source file?
+- If a type, such as a class, is declared multiple times, it will result in a compilation error.
+
+Then, how can errors due to the appearance of a class declaration multiple times be prevented?'
+- Use include guards or #pragma once in the header file.
+
+Does a class appearing multiple times in the translation unit ever happen?
+- A class appearing multiple times in the translation unit can indeed happen,
+  even though we intentionally never repeat a class multiple times in a source file.
+- This usually occurs due to indirect inclusion, where a header file that contains
+  the class declaration is included in multiple other files, leading to multiple
+  appearances of the class in the final translation unit.
+- Such scenarios can cause compilation errors, which is why include guards or
+  '#pragma once' are essential to prevent this issue.
 */
